@@ -38,7 +38,6 @@ const RecipeDetails = () => {
             <div className="container mx-auto py-10 px-6">
                 <div className="bg-white shadow-lg rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 transform transition hover:scale-105 duration-300 ease-in-out">
                     
-                    {/* Image Side */}
                     <div className="relative">
                         <img 
                             src={image} 
