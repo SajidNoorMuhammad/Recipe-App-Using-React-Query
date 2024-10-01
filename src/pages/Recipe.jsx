@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 
 const Recipe = () => {
     const [search, setSearch] = useState('');
+    const { id } = useParams();
 
     const fetchRecipe = async () => {
         const response = await fetch(`https://dummyjson.com/recipes/search?q=${search}`);
@@ -14,12 +15,12 @@ const Recipe = () => {
     }
 
     const { data, isLoading, isError } = useQuery({
-        queryKey: ["recipes"],
-        queryFn: fetchRecipe,
+        queryKey: ["recipes", search],
+        queryFn: () => fetchRecipe(search),
+        keepPreviousData: true,
     });
 
     if (isError) return message.error("Something Went Wrong");
-    if (isLoading) return <h1 className="flex justify-center mt-20 text-3xl text-gray-700"> <LoadingOutlined spin /> Loading... </h1>;
 
     console.log(data);
 
@@ -32,16 +33,19 @@ const Recipe = () => {
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="border border-gray-300 rounded-full py-2 px-4 w-[90%] mx-auto focus:outline-none focus:border-green-600"
+                    className="border border-gray-300 rounded-md py-3 px-4 w-[90%] mx-auto focus:outline-none focus:border-green-600"
                     placeholder="Search recipes..."
                 />
             </div>
+            {
+                isLoading && <h1 className="flex justify-center mt-20 text-3xl text-gray-700"> <LoadingOutlined spin /> Loading... </h1>
+            }
             <div className="container mx-auto py-10 px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
 
 
-                {data.recipes.map((recipe) => {
-                    const { image, name, rating } = recipe;
+                {data?.recipes?.map((recipe) => {
+                    const { image, name, rating, id } = recipe;
                     return (
                         <div
                             key={recipe.id}
@@ -52,7 +56,7 @@ const Recipe = () => {
                                 <h1 className="text-xl font-semibold text-gray-800">{name}</h1>
                                 <div className="flex items-center justify-between mt-2">
                                     <span className="text-gray-600 text-sm">Rating: {rating}/5</span>
-                                    <Link to={`/:id`}>
+                                    <Link to={`/${id}`}>
                                         <button className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-green-600">
                                             View Recipe
                                         </button>
@@ -62,7 +66,7 @@ const Recipe = () => {
                         </div>
                     );
                 })}
-            </div>
+            </div >
         </>
     );
 };
