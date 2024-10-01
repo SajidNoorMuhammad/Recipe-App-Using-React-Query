@@ -56,7 +56,6 @@ const RecipeDetails = () => {
                             <span className="text-gray-700 text-xl font-semibold">Rating: {rating}/5</span>
                         </div>
 
-                        {/* Ingredients */}
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Ingredients</h2>
                         <ul className="list-disc list-inside mb-8 text-gray-700 text-lg space-y-3">
                             {ingredients.map((ingredient, index) => (
