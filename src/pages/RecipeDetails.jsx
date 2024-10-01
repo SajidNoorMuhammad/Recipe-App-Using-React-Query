@@ -51,7 +51,6 @@ const RecipeDetails = () => {
                         
                         <h1 className="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">{name}</h1>
 
-                        {/* Rating */}
                         <div className="flex items-center mb-6">
                             <span className="text-yellow-500 text-2xl mr-2">⭐</span>
                             <span className="text-gray-700 text-xl font-semibold">Rating: {rating}/5</span>
