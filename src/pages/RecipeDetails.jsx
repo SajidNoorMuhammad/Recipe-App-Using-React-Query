@@ -63,7 +63,6 @@ const RecipeDetails = () => {
                             ))}
                         </ul>
 
-                        {/* Instructions */}
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Instructions</h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-8">{instructions}</p>
 
