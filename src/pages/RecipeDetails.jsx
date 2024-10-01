@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 
 const RecipeDetails = () => {
     const { id } = useParams();
-    const [search, setSearch] = useState('');
 
     const fetchRecipeDetails = async () => {
         const response = await fetch(`https://dummyjson.com/recipes/${id}`);
