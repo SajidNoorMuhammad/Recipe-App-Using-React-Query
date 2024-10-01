@@ -49,7 +49,6 @@ const RecipeDetails = () => {
 
                     <div className="p-8 flex flex-col justify-between">
                         
-                        {/* Recipe Name */}
                         <h1 className="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">{name}</h1>
 
                         {/* Rating */}
