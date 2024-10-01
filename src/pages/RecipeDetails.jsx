@@ -47,7 +47,6 @@ const RecipeDetails = () => {
                         />
                     </div>
 
-                    {/* Details Side */}
                     <div className="p-8 flex flex-col justify-between">
                         
                         {/* Recipe Name */}
