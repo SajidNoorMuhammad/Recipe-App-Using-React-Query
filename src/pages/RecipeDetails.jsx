@@ -66,7 +66,6 @@ const RecipeDetails = () => {
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Instructions</h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-8">{instructions}</p>
 
-                        {/* Go Back Button */}
                         <div className="mt-auto">
                             <button
                                 className="bg-green-500 text-white py-3 px-8 rounded-full hover:bg-green-600 transition duration-300 ease-in-out shadow-md"
