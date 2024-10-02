@@ -13,7 +13,7 @@ const Recipe = () => {
         const response = await fetch(search ?
             `https://dummyjson.com/recipes/search?q=${search}`
             :
-            "https://dummyjson.com/recipes/searchF"
+            "https://dummyjson.com/recipes"
         );
         return await response.json();
     }
