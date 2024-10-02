@@ -10,7 +10,11 @@ const Recipe = () => {
     const { id } = useParams();
 
     const fetchRecipe = async () => {
-        const response = await fetch(`https://dummyjson.com/recipes/search?q=${search}`);
+        const response = await fetch(search ?
+            `https://dummyjson.com/recipes/search?q=${search}`
+            :
+            "https://dummyjson.com/recipes/searchF"
+        );
         return await response.json();
     }
 
